@@ -55,7 +55,7 @@ Fold 1: 0 hours 0 minutes and 0.47 seconds.
  10-fold average SVR prediction for SulfMK5_SVR: 69.16
 ```
 
-For predictions larger than 45 oC, a second prediction will be made automatically from a model that was train only on high-temperature data.  
+For predictions larger than 45 oC, a second prediction will be made automatically from a model that was trained only on high-temperature data.  
 
 If you wish to use our best model based on ProtT5 language models, first we must create the embeddings. This is demonstrated on the second proteome file in the same directory:  
 
