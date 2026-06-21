@@ -218,7 +218,7 @@ sub_file = id_code + "_DIpep.csv"
 result.to_csv(sub_file, index=False, float_format="%.4f")
 
 if (mpred > 45):
-    print('\n !!! As the NN prediction is above 45 degrees, we are making a high temperature-based prediction with SVR !!!')
+    print('\n !!! As the NN prediction is above 45 degrees, we are making a high temperature-based prediction with NNs !!!')
     df_dip = pd.read_csv(id_code + "_DIpep_freq.csv")
     df_dip.drop(['Assembly_ID'], axis=1, inplace=True)
 
@@ -226,31 +226,45 @@ if (mpred > 45):
     features = df_dip.columns.tolist()
     df_dip[features] = encoder.transform(df_dip[features].values)
 
-    svc_params = {
-                'kernel': 'rbf',
-                'cache_size': 20000,
-                'max_iter': -1,
-                'verbose': True,
-                'epsilon': 0.47696210677972245, 'C': 125.64520887296338, 'gamma': 0.0002153760476023981,
-                }
+    folds = 10
+    bags = 3
+    val_batchsize = 8192
+    batchsize = 32
 
-    test_prediction = 0.0
+    fpred = []
     starttime = timer(None)
     for i in range(folds):
         start_time = timer(None)
-        model = SVR()
-        model.set_params(**svc_params)
-        model = joblib.load("models/SVR_above45_model_fold_%02d.joblib" % (i + 1) )
+        for bag in range(bags):
+            nnet = load_model(
+                "models/NN-DIpep-above45-model-fold-"
+                + str("%02d" % (i + 1))
+                + "-bag-"
+                + str("%02d" % (bag + 1))
+                + ".h5"
+            )
 
-        test_prediction += np.clip(model.predict(df_dip), 4, 103)
+            y_pred_bag = nnet.predict(df_dip, verbose=0, batch_size=val_batchsize).flatten()
+            if bag > 0:
+                y_pred = y_pred + y_pred_bag
+            else:
+                y_pred = y_pred_bag
+
+        y_pred = y_pred / bags
         timer(start_time, "Fold %d" % (i + 1))
 
+        if i > 0:
+            fpred = pred + y_pred
+        else:
+            fpred = y_pred
+        pred = fpred
+
     timer(starttime, "Complete prediction")
-    test_prediction = test_prediction / folds
+    test_prediction = pred / folds
 
     result = pd.DataFrame(test_prediction, columns=["prediction"])
-    result["Assembly_ID"] = id_code + '_SVR'
+    result["Assembly_ID"] = id_code + '_DIpep_HT'
     result = result[["Assembly_ID", "prediction"]]
-    print("\n 10-fold average SVR prediction for %s: %.2f\n" % (id_code + '_SVR', test_prediction))
-    sub_file = id_code + "_SVR.csv"
+    print("\n 10-fold average NN HT prediction for %s: %.2f\n" % (id_code + '_DIpep_HT', test_prediction))
+    sub_file = id_code + "_DIpep_HT.csv"
     result.to_csv(sub_file, index=False, float_format="%.4f")

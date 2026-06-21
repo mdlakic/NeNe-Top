@@ -97,6 +97,8 @@ if os.access(args.sequences, os.R_OK):
             name, seq = fasta.id.split(" ")[0], str(fasta.seq)
             # delete * signs prodigal puts at the end of sequence
             seq = re.sub("\*", "", seq)
+            if len(seq) > 4000:
+                seq = seq[:4000]
             slen = len(seq)
 #            sequences.append(" ".join(str(fasta.seq)))
             sequences.append(" ".join(seq))
