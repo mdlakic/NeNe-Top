@@ -9,8 +9,8 @@ Microorganisms live and grow across a wide range of temperatures, and this proje
 A manuscript describing this work is currently in review. Dlakic, M and Inskeep, WP (2026) Improved prediction of microbial optimal growth temperatures with neural networks and protein language models. *Submitted.*
 
 
-Please install conda/mamba first. They are available:
-https://conda-forge.org/miniforge/
+Please install conda/mamba first. They are available:  
+https://conda-forge.org/miniforge/  
 There are three shell scripts in this repository that will install a dedicated environment called “NeNe” depending on your preferences.  
 
 install_no_ProtT5.sh		- to install an environment without ProtT5  
