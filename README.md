@@ -11,13 +11,13 @@ A manuscript describing this work is currently in review. Dlakic, M and Inskeep,
 
 Please install conda/mamba first. They are available:
 https://conda-forge.org/miniforge/
-There are three shell scripts in this repository that will install a dedicated environment called “NeNe” depending on your preferences.
+There are three shell scripts in this repository that will install a dedicated environment called “NeNe” depending on your preferences.  
 
-install_no_ProtT5.sh		- to install an environment without ProtT5
-install_with_ProtT5.sh	- to install an environment with ProtT5
-install_with_ProtT5_CPU.sh	- to install an environment with ProtT5 and CPU (no GPU)
+install_no_ProtT5.sh		- to install an environment without ProtT5  
+install_with_ProtT5.sh	- to install an environment with ProtT5  
+install_with_ProtT5_CPU.sh	- to install an environment with ProtT5 and CPU (no GPU)  
 
-The last option will be very slow, and we suggest that you install ProtT5 on a computer with GPU (option #2).
+The last option will be very slow, and we suggest that you install ProtT5 on a computer with GPU (option #2).  
 
 Assuming you have conda installed, simply run:  
 ```
@@ -106,6 +106,4 @@ python NeNe-Top-ProtT5.py pyroWP30_pLM.csv
  10-fold average prediction for pyroWP30_pLM_ProtT5_HT: 87.42
 ```
 
-Again we have a thermophilic organism with optimal growth temperature larger than 45 oC, so a second prediction will be made automatically from a model that was trained only on high-temperature data.  
-
-More details will be posted here when the manuscript is accepted for publication.  
+Again we have a thermophilic organism with optimal growth temperature larger than 45 <sup>o</sup>C, so a second prediction will be made automatically from a model that was trained only on high-temperature data.  
