@@ -3,7 +3,7 @@
 
 NeNe-Top - <ins>Ne</ins>ural <ins>Ne</ins>twork for <ins>T</ins>emperature <ins>O</ins>ptimum <ins>P</ins>rediction
 
-## Project goals:
+## ✨ Project goals
 Microorganisms live and grow across a wide range of temperatures, and this project provides a way to predict the temperature at which they grow best. Measuring optimal growth temperatures in the lab is slow and, in many cases, impossible when microbes cannot be grown in pure cultures. This work builds on previous studies, which showed that using protein sequence information is a viable way to predict optimal growth temperatures. We gathered a large, carefully chosen set of complete genomes and metagenomes reconstructed from environmental samples. Next, we tested several modern machine learning methods, including neural networks. Our machine learning tools make predictions that match real lab results closely and work for many kinds of microbes. In addition, the predictions are fast and scale to large datasets, thus reducing the need for time-consuming experiments.
 
 ## 📚 References
