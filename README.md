@@ -17,7 +17,7 @@ If you find this work useful, please also cite the following papers:
 * Sato Y, Okano K, Kimura H, Honda K. 2020. [TEMPURA: Database of Growth TEMPeratures of Usual and RAre Prokaryotes.](https://pubmed.ncbi.nlm.nih.gov/32727974/) <i>Microbes Environ.</i>, 35(3).
 * Elnaggar A, et al. 2022. [ProtTrans: Toward Understanding the Language of Life Through Self-Supervised Learning.](https://pubmed.ncbi.nlm.nih.gov/34232869/) <i>IEEE Trans Pattern Anal Mach Intell.</i>, 44: 7112-7127.
 
-## 🚀 Installation
+## 🚀 Installation and testing
 
 Please install [conda/mamba](https://conda-forge.org/miniforge/).
 
