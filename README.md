@@ -21,7 +21,7 @@ If you find this work useful, please also cite the following papers:
 
 Please install [conda/mamba](https://conda-forge.org/miniforge/).
 
-There are three shell scripts in this repository that will install a dedicated environment called “NeNe” depending on your preferences.
+There are three shell scripts in this repository that will install a dedicated environment called `NeNe` depending on your preferences.
 
 install_no_ProtT5.sh - to install an environment without ProtT5  
 install_with_ProtT5.sh - to install an environment with ProtT5  
@@ -85,7 +85,7 @@ If you wish to use our best model based on ProtT5 language models, first we must
 python NeNe-ProtT5-XL-U50-embedding.py pyroWP30.faa
 ```
 
-This will take anywhere from 1 to 10 minutes, depending on your GPU speed and memory. A file named “pyroWP30_pLM.csv” will be made, which is used for optimal temperature prediction:  
+This will take anywhere from 1 to 10 minutes, depending on your GPU speed and memory. A file named �`pyroWP30_pLM.csv` will be made, which is used for optimal temperature prediction:  
 
 ```
 python NeNe-Top-ProtT5.py pyroWP30_pLM.csv
