@@ -85,7 +85,7 @@ If you wish to use our best model based on ProtT5 language models, first we must
 python NeNe-ProtT5-XL-U50-embedding.py pyroWP30.faa
 ```
 
-This will take anywhere from 1 to 10 minutes, depending on your GPU speed and memory. A file named â`pyroWP30_pLM.csv` will be made, which is used for optimal temperature prediction:  
+This will take anywhere from 1 to 10 minutes, depending on your GPU speed and memory. A file named `pyroWP30_pLM.csv` will be made, which is used for optimal temperature prediction:  
 
 ```
 python NeNe-Top-ProtT5.py pyroWP30_pLM.csv
@@ -118,7 +118,7 @@ python NeNe-Top-ProtT5.py pyroWP30_pLM.csv
  10-fold average prediction for pyroWP30_pLM_ProtT5_HT: 87.42
 ```
 
-Again we have a thermophilic organism with optimal growth temperature larger than 45 <sup>o</sup>C, so a second prediction will be made automatically from a model that was trained only on high-temperature data. Compare the results obtained on your computer with files in the `expected_output` folder.
+Again, we have a thermophilic organism with optimal growth temperature larger than 45 <sup>o</sup>C, so a second prediction will be made automatically from a model that was trained only on high-temperature data. Compare the results obtained on your computer with files in the `expected_output` folder.
 
 ## ðŸ“ˆ Performance
 
