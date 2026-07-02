@@ -10,7 +10,7 @@ Microorganisms live and grow across a wide range of temperatures, and this proje
 
 NeNe-Top is described in:
 
-Dlakic, M and Inskeep, WP (2026) Improved prediction of microbial optimal growth temperatures with neural networks and protein language models. *Submitted.*
+Dlakic, M and Inskeep, WP (2026) [Improved prediction of microbial optimal growth temperatures with neural networks and protein language models.](https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2026.1874451) **Accepted for publication.**
 
 If you find this work useful, please also cite the following papers:
 
@@ -21,24 +21,24 @@ If you find this work useful, please also cite the following papers:
 
 Please install [conda/mamba](https://conda-forge.org/miniforge/).
 
-There are three shell scripts in this repository that will install a dedicated environment called `NeNe` depending on your preferences.
+There are three shell scripts in this repository that will install a dedicated environment called `NeNe`, depending on your preferences.
 
-install_no_ProtT5.sh - to install an environment without ProtT5  
-install_with_ProtT5.sh - to install an environment with ProtT5  
-install_with_ProtT5_CPU.sh - to install an environment with ProtT5 and CPU (no GPU)
+1. install_no_ProtT5.sh - to install an environment without a ProtT5 protein language model  
+2. install_with_ProtT5.sh - to install an environment with a ProtT5 protein language model  
+3. install_with_ProtT5_CPU.sh - to install an environment with ProtT5 and CPU (no GPU)
 
-Running ProtT5 without GPU will be very slow, and we suggest that you install ProtT5 on a computer with GPU (option #2).
+Using ProtT5 without GPU will be very slow, and we suggest that you install ProtT5 only on a computer with GPU (option #2).
 
-First, clone this repository and change into the main directory. Assuming that you have installed conda, simply run:  
+First, clone this repository and change into the main directory. Assuming that conda is installed, simply run:  
 ```
 bash install_with_ProtT5.sh
 OR
 source install_with_ProtT5.sh
 ```
 
-This procedure will create a NeNe environment, activate it, and install all the required packages. This procedure is done only once. After that, you exit this environment by typing `conda deactivate`, and enter it again by typing `conda activate NeNe`.
+This procedure will create a NeNe environment, activate it, and install all the required packages. This procedure is done only once. After that, typing `conda deactivate` will exit this environment, and typing `conda activate NeNe` will enter it again.
 
-After the installation process is complete, we suggest that you try your first neural network prediction. The only requirement is to have a FASTA file with all proteins from a given (meta)genome. There are two example files in this repository.
+After the installation process is complete, we suggest that you test neural network predictions. The only requirement is to have a FASTA file with all proteins from a given (meta)genome. There are two example files in this repository (`SulfMK5.faa` and `pyroWP30.faa`).
 
 To make a prediction using dipeptide frequencies:  
 ```
@@ -79,13 +79,13 @@ Fold 1: 0 hours 0 minutes and 0.47 seconds.
 
 For predictions larger than 45 <sup>o</sup>C, a second prediction will be made automatically from a model that was trained only on high-temperature data. See our paper for details.
 
-If you wish to use our best model based on ProtT5 language models, first we must create the embeddings. This is demonstrated on the second proteome file in the same directory:  
+To use our best model based on ProtT5, first we must create the embeddings. This is demonstrated on the second proteome file in the same directory:  
 
 ```
 python NeNe-ProtT5-XL-U50-embedding.py pyroWP30.faa
 ```
 
-This will take anywhere from 1 to 10 minutes, depending on your GPU speed and memory. A file named `pyroWP30_pLM.csv` will be made, which is used for optimal temperature prediction:  
+This will take anywhere from 1 to 10 minutes, depending on GPU speed and memory. A file named `pyroWP30_pLM.csv` will be made, which is used for optimal temperature prediction:  
 
 ```
 python NeNe-Top-ProtT5.py pyroWP30_pLM.csv
