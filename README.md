@@ -10,7 +10,7 @@ Microorganisms live and grow across a wide range of temperatures, and this proje
 
 NeNe-Top is described in:
 
-Dlakic, M and Inskeep, WP (2026) [Improved prediction of microbial optimal growth temperatures with neural networks and protein language models.](https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2026.1874451) **Accepted for publication.**
+Dlakic, M and Inskeep, WP (2026) [Improved prediction of microbial optimal growth temperatures with neural networks and protein language models.](https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2026.1874451) *Front. Genet. 17:* 1874451.
 
 If you find this work useful, please also cite the following papers:
 
